@@ -6,7 +6,7 @@ A collection of SwiftUI extensions helping with convenience and backward compati
 
 ```swift
 struct SomeView: View {
-    @ObservedObject var model: Model
+    @ObservedObject var model: SomeModel
     @State private var isPresented = false
 
     var body: some View {
