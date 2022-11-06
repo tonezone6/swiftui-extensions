@@ -15,7 +15,7 @@ var body: some View {
         }
     }
     .sheet(isPresented: $isPresented, detents: [.medium, .large]) {
-        Text("This is the new iOS 16 sheet using detents! Previous iOS version will display a regular sheet.")
+        Text("This is the new iOS 16 sheet using detents! Previous iOS versions will display a regular sheet.")
     }
 }
 ```
