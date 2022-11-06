@@ -12,9 +12,11 @@ struct SomeView: View {
     var body: some View {
         VStack {
             Text("Hello, sheet!")
+            
             Button("Show new sheet", image: .arrowUp, position: .right) {
                 isPresented.toggle()
             }
+            .buttonStyle(.mint)
         }
         .sheet(isPresented: $isPresented, detents: [.medium, .large]) {
             /// Hello, new sheet using detents! 
