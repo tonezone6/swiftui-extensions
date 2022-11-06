@@ -12,12 +12,16 @@ struct SomeView: View {
     var body: some View {
         VStack {
             Text("Hello, sheet!")
-            Button("Show") {
+            Button("Show sheet") {
                 isPresented.toggle()
             }
         }
         .sheet(isPresented: $isPresented, detents: [.medium, .large]) {
-            Text("This is the new iOS 16 sheet using detents! Previous iOS versions will display a regular sheet.")
+            Text(""" 
+                Hello, new sheet using detents! 
+                Pre - iOS 16 versions will display a regular sheet.
+            """
+            )
         }
         .simpleAlert(error: $model.error)
     }
