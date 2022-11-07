@@ -14,39 +14,21 @@ extension View {
         dragIndicator: Bool = true,
         content: @escaping () -> Content) -> some View {
             
-        self.modifier(
-            SheetModifier(
-                isPresented: isPresented,
-                detents: detents,
-                dragIndicator: dragIndicator,
-                sheetContent: content
-            )
-        )
-    }
-}
-
-struct SheetModifier<SheetContent: View>: ViewModifier {
-    @Binding var isPresented: Bool
-    
-    let detents: [SheetDetent]
-    let dragIndicator: Bool
-    let sheetContent: () -> SheetContent
-    
-    func body(content: Content) -> some View {
-        content.sheet(isPresented: $isPresented) {
+        self.sheet(isPresented: isPresented) {
             if #available(iOS 16.0, *) {
-                sheetContent()
+                content()
                     .presentationDetents(Set(detents.map(\.presentationDetent)))
                     .presentationDragIndicator(dragIndicator ? .visible : .hidden)
             } else {
-                sheetContent()
+                content()
             }
         }
     }
 }
 
 public enum SheetDetent: Hashable {
-    case medium, large
+    case medium
+    case large
     case fraction(CGFloat)
     case height(CGFloat)
     

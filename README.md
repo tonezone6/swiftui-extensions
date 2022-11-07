@@ -20,10 +20,9 @@ struct SomeView: View {
         }
         .sheet(isPresented: $isPresented, detents: [.medium, .large]) {
             /// Hello, new sheet using detents! 
-            /// Pre - iOS 16 versions will display a regular sheet.
-            /// Sheet content here...
+            /// pre-iOS 16 versions will display a regular sheet
         }
-        .simpleAlert(error: $model.error)
+        .alert(error: $model.error)
     }
 }
 ```

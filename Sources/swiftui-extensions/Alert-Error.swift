@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension View {
-    public func simpleAlert<E>(error: Binding<E?>, title: String = "Alert") -> some View
+    public func alert<E>(error: Binding<E?>, title: String = "Alert") -> some View
     where E: Error, E: Identifiable, E: LocalizedError {
         self.alert(item: error) { error in
             Alert(
