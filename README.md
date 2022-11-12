@@ -5,20 +5,19 @@ A collection of SwiftUI extensions helping with convenience and backward compati
 ### Backward compatible sheet modifier
 
 ```swift
-struct SomeView: View {
-    @ObservedObject var model: SomeModel
-    @State private var isPresented = false
+struct ContentView: View {
+    @ObservedObject var model: Model
 
     var body: some View {
         VStack {
             Text("Hello, sheet!")
             
-            Button("Show new sheet", image: .arrowUp, position: .right) {
-                isPresented.toggle()
+            Button("Show sheet", image: .arrowUp, position: .right) {
+                model.showSheet()
             }
             .buttonStyle(.mint)
         }
-        .sheet(isPresented: $isPresented, detents: [.medium, .large]) {
+        .sheet(isPresented: $model.isSheetPresented, detents: [.medium, .large]) {
             /// Hello, new sheet using detents! 
             /// pre-iOS 16 versions will display a regular sheet
         }
