@@ -2,7 +2,7 @@
 
 A collection of SwiftUI convenient extensions.
 
-### SFSymbols button
+### SFSymbol buttons
 
 ```swift
 Button("Favorites", systemImage: "heart.fill", position: .leading) {
