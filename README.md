@@ -9,3 +9,10 @@ LoadingButton("Upload", systemImage: "arrow.up") {
   // async work...
 }
 ```
+
+### Checkmark toggle
+
+```swift
+Toggle("Show more options", isOn: $showMore)
+  .toggleStyle(.checkCircle)
+```
