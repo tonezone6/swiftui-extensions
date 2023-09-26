@@ -37,6 +37,7 @@ public struct LoadingButton: View {
     task = Task {
       loading = true
       await action()
+      task = nil
       loading = false
     }
   }
@@ -82,7 +83,7 @@ private extension ButtonStyle where Self == RoundedRectButtonStyle {
   VStack {
     Button("Continue") {}
     LoadingButton("Upload", systemImage: "arrow.up") {
-      try? await Task.sleep(for: .seconds(3))
+      try? await Task.sleep(for: .seconds(2))
     }
   }
   .buttonStyle(.roundedBlue)
