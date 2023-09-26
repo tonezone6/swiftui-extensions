@@ -1,27 +1,15 @@
 # SwiftUI extensions
 
-A collection of SwiftUI extensions helping with convenience and backward compatibility.
+A collection of SwiftUI convenient extensions.
 
-### Backward compatible sheet modifier
+### SFSymbols button
 
 ```swift
-struct ContentView: View {
-    @ObservedObject var model: Model
+Button("Favorites", systemImage: "heart.fill", position: .leading) {
+  // perform action
+}
 
-    var body: some View {
-        VStack {
-            Text("Hello, sheet!")
-            
-            Button("Show sheet", image: .arrowUp, position: .right) {
-                model.showSheet()
-            }
-            .buttonStyle(.mint)
-        }
-        .sheet(isPresented: $model.isSheetPresented, detents: [.medium, .large]) {
-            /// Hello, new sheet using detents! 
-            /// pre-iOS 16 versions will display a regular sheet
-        }
-        .alert(error: $model.error)
-    }
+Button("Upload", systemImage: "arrow.up", position: .trailing) {
+  // perform action
 }
 ```
