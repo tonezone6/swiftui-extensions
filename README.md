@@ -1,8 +1,29 @@
 # SwiftUI extensions
 
-A collection of SwiftUI convenient extensions.
+A collection of SwiftUI convenient extensions and reusable custom views.
+
+### Rounded rectangle button style
+
+```swift
+import SwiftUIExtensions
+
+extension ButtonStyle where Self == RoundedRectButtonStyle {
+  static var roundedBlue: Self {
+    .init(
+      foregroundColor: .white,
+      backgroundColor: .blue,
+      cornerRadius: 8
+    )
+  }
+}
+//...
+Button("Continue", systemImage: "arrow.right") { /.../ }
+  .buttonStyle(.roundedBlue)
+```
 
 ### Loading button
+
+SwiftUI button that can handle async work and cancellation.
 
 ```swift
 LoadingButton("Upload", systemImage: "arrow.up") {
@@ -15,4 +36,16 @@ LoadingButton("Upload", systemImage: "arrow.up") {
 ```swift
 Toggle("Show more options", isOn: $showMore)
   .toggleStyle(.checkCircle)
+```
+
+### Stretching header
+
+```swift
+StretchingHeader {
+  Image(.landscape)
+    .resizable()
+    .scaledToFill()
+  Text("Photo credits: Marcus Lee")
+    .font(.caption)
+}
 ```
