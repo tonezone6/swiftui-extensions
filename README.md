@@ -49,3 +49,29 @@ StretchingHeader {
     .font(.caption)
 }
 ```
+
+### Basic alert
+
+Convenient alert view modifier using an identifiable error type.
+
+```swift
+enum SomeError: Identifiable, LocalizedError {
+  case unknown
+  
+  var id: Self { self }
+  var errorDescription: String? {
+    "An error message"
+  }
+}
+
+struct SomeView: View {
+  @State private var error: SomeError?
+  
+  var body: some View {
+    ScrollView {
+      //...
+    }
+    .basicAlert(error: $error)
+  }
+}
+```
