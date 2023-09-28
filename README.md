@@ -75,3 +75,20 @@ struct SomeView: View {
   }
 }
 ```
+
+### Share sheet
+
+`SwiftUI` sheet based on `UIKit` `UIActivityViewController`.
+
+```swift
+struct SomeView: View {
+  @State private var showSheet = false
+  
+  var body: some View {
+    ScrollView {
+      //...
+    }
+    .shareSheet(isPresented: $showSheet, items: [product.url])
+  }
+}
+```

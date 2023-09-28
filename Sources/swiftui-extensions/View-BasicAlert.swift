@@ -19,33 +19,3 @@ extension View {
     }
   }
 }
-
-enum SomeError: Identifiable, LocalizedError {
-  case unknown
-  
-  var id: Self { self }
-  var errorDescription: String? {
-    "Some error message"
-  }
-}
-
-struct SomeView: View {
-  @State private var error: SomeError?
-  
-  var body: some View {
-    ScrollView {
-      Text("First")
-      Text("Second")
-      Text("Third")
-      Button("Show error") {
-        error = .unknown
-      }
-    }
-    .basicAlert(error: $error)
-  }
-}
-
-#Preview {
-  SomeView()
-}
-
