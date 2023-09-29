@@ -8,7 +8,9 @@ SwiftUI button to handle async work and cancellation.
 
 ```swift
 LoadingButton("Upload", systemImage: "arrow.up") {
-  // async work...
+  /// tap to perform async work
+  /// tap again to cancel task
+  // async work here...
 }
 ```
 
