@@ -14,41 +14,13 @@ LoadingButton("Upload", systemImage: "arrow.up") {
 }
 ```
 
-### Checkmark toggle
-
-```swift
-Toggle("Show more options", isOn: $showMore)
-  .toggleStyle(.checkCircle)
-```
-
-### Stretching header
-
-```swift
-StretchingHeader {
-  Image(.landscape)
-    .resizable()
-    .scaledToFill()
-  Text("Photo credits: Marcus Lee")
-    .font(.caption)
-}
-```
-
 ### Basic alert
 
-Convenient alert view modifier using an identifiable error type.
+Convenient alert view modifier using an identifiable error type and displaying the localized error message.
 
 ```swift
-enum SomeError: Identifiable, LocalizedError {
-  case unknown
-  
-  var id: Self { self }
-  var errorDescription: String? {
-    "An error message"
-  }
-}
-
-struct SomeView: View {
-  @State private var error: SomeError?
+struct ListView: View {
+  @State private var error: MyError?
   
   var body: some View {
     ScrollView {
@@ -87,4 +59,23 @@ NavigationStack {
   foregroundColor: .black,
   backSystemImage: "arrow.left"
 )
+```
+
+### Checkmark toggle
+
+```swift
+Toggle("Show more options", isOn: $showMore)
+  .toggleStyle(.checkCircle)
+```
+
+### Stretching header
+
+```swift
+StretchingHeader {
+  Image(.landscape)
+    .resizable()
+    .scaledToFill()
+  Text("Photo credits: Marcus Lee")
+    .font(.caption)
+}
 ```
