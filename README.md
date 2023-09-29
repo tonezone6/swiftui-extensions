@@ -4,7 +4,7 @@ A collection of SwiftUI convenient extensions and reusable custom views.
 
 ### Loading button
 
-SwiftUI button that can handle async work and cancellation.
+SwiftUI button to handle async work and cancellation.
 
 ```swift
 LoadingButton("Upload", systemImage: "arrow.up") {
