@@ -75,3 +75,16 @@ struct SomeView: View {
   }
 }
 ```
+
+### Navigation appearence
+
+```swift
+NavigationStack {
+  ContentView()
+}
+.navigationAppearence(
+  backgroundColor: .white,
+  foregroundColor: .black,
+  backSystemImage: "arrow.left"
+)
+```
