@@ -5,8 +5,7 @@
 import SwiftUI
 
 public struct FlowStack: Layout {
-  public let spacing: CGFloat
-  var alignment: HorizontalAlignment = .trailing
+  let spacing: CGFloat
   
   public init(spacing: CGFloat = 4) {
     self.spacing = spacing
@@ -74,7 +73,8 @@ public struct FlowStack: Layout {
 #Preview {
   ScrollView {
     FlowStack {
-      ForEach(String.loremIpsum(words: 60)!.uniqueStrings(splitBy: " "), id: \.self) { string in
+      let items = String.loremIpsum(words: 50)!
+      ForEach(items.uniqueStrings(), id: \.self) { string in
         Text(string)
           .padding(6)
           .padding(.horizontal, 6)
