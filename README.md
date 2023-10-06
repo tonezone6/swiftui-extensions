@@ -19,7 +19,7 @@ struct ListView: View {
 }
 ```
 
-Loading button
+### Loading button
 
 SwiftUI button that handles async work and cancellation.
 
@@ -31,7 +31,7 @@ LoadingButton("Upload", systemImage: "arrow.up") {
 }
 ```
 
-Share sheet
+### Share sheet
 
 `SwiftUI` sheet based on `UIKit` `UIActivityViewController`.
 
@@ -48,14 +48,14 @@ struct SomeView: View {
 }
 ```
 
-Toggle style: checkmark
+### Toggle style: checkmark
 
 ```swift
 Toggle("Show more options", isOn: $showMore)
   .toggleStyle(.checkCircle)
 ```
 
-Stretching header
+### Stretching header
 
 ```swift
 StretchingHeader {
@@ -67,7 +67,7 @@ StretchingHeader {
 }
 ```
 
-Lorem Ipsum text generator
+### Lorem Ipsum text generator
 
 ```swift
 // ...
@@ -78,7 +78,7 @@ let items = string.uniqueStrings(splitBy: " ")
 // ...
 ```
 
-Navigation bar appearence
+### Navigation bar appearence
 
 ```swift
 NavigationStack {
