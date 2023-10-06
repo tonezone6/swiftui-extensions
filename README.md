@@ -2,18 +2,6 @@
 
 A collection of SwiftUI convenient extensions and reusable custom views.
 
-### Loading button
-
-SwiftUI button to handle async work and cancellation.
-
-```swift
-LoadingButton("Upload", systemImage: "arrow.up") {
-  /// tap to perform async work
-  /// tap again to cancel task
-  // async work here...
-}
-```
-
 ### Basic alert
 
 Convenient alert view modifier using an identifiable error type and displaying the localized error message.
@@ -28,6 +16,17 @@ struct ListView: View {
     }
     .basicAlert(error: $error)
   }
+}
+```
+
+### Loading button
+
+SwiftUI button that handles async work and cancellation.
+
+```swift
+/// Tap to perform async work or tap again to cancel the task.
+LoadingButton("Upload", systemImage: "arrow.up") {
+  // async work...
 }
 ```
 
@@ -48,20 +47,7 @@ struct SomeView: View {
 }
 ```
 
-### Navigation appearence
-
-```swift
-NavigationStack {
-  ContentView()
-}
-.navigationAppearence(
-  backgroundColor: .white,
-  foregroundColor: .black,
-  backSystemImage: "arrow.left"
-)
-```
-
-### Checkmark toggle
+### Toggle style: checkmark
 
 ```swift
 Toggle("Show more options", isOn: $showMore)
@@ -78,4 +64,28 @@ StretchingHeader {
   Text("Photo credits: Marcus Lee")
     .font(.caption)
 }
+```
+
+### Lorem Ipsum text generator for previews
+
+```swift
+// ...
+guard let string = String.loremIpsum(words: 20) else { return }
+/// generating an array of unique strings 
+/// that can be easily used with SwiftUI.
+let items = string.uniqueStrings(splitBy: " ")
+// ...
+```
+
+### Navigation bar appearence
+
+```swift
+NavigationStack {
+  ContentView()
+}
+.navigationAppearence(
+  backgroundColor: .white,
+  foregroundColor: .black,
+  backSystemImage: "arrow.left"
+)
 ```
