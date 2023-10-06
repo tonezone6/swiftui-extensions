@@ -31,6 +31,23 @@ LoadingButton("Upload", systemImage: "arrow.up") {
 }
 ```
 
+### Flow stack
+
+`FlowStack`is similar to `VStack` and `HStack` layouts, but wrapping the content vertically when there is no space left horizontally. 
+
+```swift
+ScrollView {
+  FlowStack {
+    ForEach(items, id: \.self) { item in
+      TagView(item)
+    }
+  }
+  .frame(maxWidth: .infinity, alignment: .leading)
+  .padding()
+}
+```
+![Screenshot](simulator-flow-stack.png)
+
 ### Share sheet
 
 `SwiftUI` sheet based on `UIKit` `UIActivityViewController`.
@@ -106,5 +123,4 @@ VStack(spacing: 0) {
 }
 .ignoresSafeArea()
 ```
-
 ![Screenshot](simulator-overlay-size.png)
