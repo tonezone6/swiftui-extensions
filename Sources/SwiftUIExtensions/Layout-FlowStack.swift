@@ -70,18 +70,23 @@ public struct FlowStack: Layout {
   }
 }
 
+struct TagCapsule: View {
+  let text: String
+  var body: some View {
+    Text(text)
+      .padding(6)
+      .padding(.horizontal, 6)
+      .foregroundStyle(.white)
+      .background(.blue.gradient)
+      .clipShape(.capsule)
+  }
+}
+
 #Preview {
   ScrollView {
     FlowStack {
-      let items = String.loremIpsum(words: 50)!
-      ForEach(items.uniqueStrings(), id: \.self) { string in
-        Text(string)
-          .padding(6)
-          .padding(.horizontal, 6)
-          .foregroundStyle(.white)
-          .background(.blue.gradient)
-          .clipShape(.capsule)
-      }
+      let items = String.loremIpsum(words: 50)?.uniqueStrings() ?? []
+      ForEach(items, id: \.self, content: TagCapsule.init)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding()
