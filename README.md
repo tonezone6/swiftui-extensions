@@ -19,7 +19,7 @@ struct ListView: View {
 }
 ```
 
-### Loading button
+Loading button
 
 SwiftUI button that handles async work and cancellation.
 
@@ -31,7 +31,7 @@ LoadingButton("Upload", systemImage: "arrow.up") {
 }
 ```
 
-### Share sheet
+Share sheet
 
 `SwiftUI` sheet based on `UIKit` `UIActivityViewController`.
 
@@ -48,14 +48,14 @@ struct SomeView: View {
 }
 ```
 
-### Toggle style: checkmark
+Toggle style: checkmark
 
 ```swift
 Toggle("Show more options", isOn: $showMore)
   .toggleStyle(.checkCircle)
 ```
 
-### Stretching header
+Stretching header
 
 ```swift
 StretchingHeader {
@@ -67,18 +67,18 @@ StretchingHeader {
 }
 ```
 
-### Lorem Ipsum text generator for previews
+Lorem Ipsum text generator
 
 ```swift
 // ...
 guard let string = String.loremIpsum(words: 20) else { return }
 /// generating an array of unique strings 
-/// that can be easily used with SwiftUI.
+/// that can be then used with SwiftUI.
 let items = string.uniqueStrings(splitBy: " ")
 // ...
 ```
 
-### Navigation bar appearence
+Navigation bar appearence
 
 ```swift
 NavigationStack {
@@ -94,14 +94,17 @@ NavigationStack {
 ### View size overlay
 
 ```swift
-NavigationStack {
-  ContentView()
+VStack(spacing: 0) {
+  Rectangle().fill(.mint)
+  Rectangle().fill(.brown)
+  Rectangle().fill(.red)
+  Rectangle().fill(.orange)
+  Rectangle().fill(.yellow)
+  Rectangle().fill(.cyan).overlaySize()
+  Rectangle().fill(.teal)
+  Rectangle().fill(.blue)
 }
-.navigationAppearence(
-  backgroundColor: .white,
-  foregroundColor: .black,
-  backSystemImage: "arrow.left"
-)
+.ignoresSafeArea()
 ```
 
 ![Screenshot](simulator-overlay-size.png)
