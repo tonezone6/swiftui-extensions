@@ -90,3 +90,18 @@ NavigationStack {
   backSystemImage: "arrow.left"
 )
 ```
+
+### View size overlay
+
+```swift
+NavigationStack {
+  ContentView()
+}
+.navigationAppearence(
+  backgroundColor: .white,
+  foregroundColor: .black,
+  backSystemImage: "arrow.left"
+)
+```
+
+![Screenshot](simulator-overlay-size.png)

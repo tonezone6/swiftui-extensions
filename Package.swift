@@ -4,18 +4,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "swiftui-extensions",
+    name: "SwiftUIExtensions",
     platforms: [.iOS(.v16)],
     products: [
         .library(
-            name: "swiftui-extensions",
-            targets: ["swiftui-extensions"]
+            name: "SwiftUIExtensions",
+            targets: ["SwiftUIExtensions"]
         )
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "swiftui-extensions",
+            name: "SwiftUIExtensions",
             dependencies: []
         )
     ]

@@ -2,7 +2,6 @@
 //  View-NavigationAppearence.swift
 //
 
-
 import SwiftUI
 
 extension View {

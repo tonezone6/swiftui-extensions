@@ -1,8 +1,5 @@
 //
-//  SwiftUIView.swift
-//  
-//
-//  Created by Alex S. on 27/09/2023.
+//  StretchingHeader.swift
 //
 
 import SwiftUI
