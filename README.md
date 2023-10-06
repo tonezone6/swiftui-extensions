@@ -24,7 +24,8 @@ struct ListView: View {
 SwiftUI button that handles async work and cancellation.
 
 ```swift
-/// Tap to perform async work or tap again to cancel the task.
+/// Tap to perform async work 
+/// or tap again to cancel the task.
 LoadingButton("Upload", systemImage: "arrow.up") {
   // async work...
 }
