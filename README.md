@@ -7,8 +7,8 @@ A collection of SwiftUI convenient extensions and reusable custom views.
 Convenient alert view modifier using an identifiable error type and displaying the localized error message.
 
 ```swift
-struct ListView: View {
-  @State private var error: MyError?
+struct ContentView: View {
+  @State private var error: SomeError?
   
   var body: some View {
     ScrollView {
@@ -24,16 +24,15 @@ struct ListView: View {
 SwiftUI button that handles async work and cancellation.
 
 ```swift
-/// Tap to perform async work 
-/// or tap again to cancel the task.
 LoadingButton("Upload", systemImage: "arrow.up") {
-  // async work...
+  /// Tap to perform async work 
+  /// or tap again to cancel the task.
 }
 ```
 
 ### Flow stack
 
-`FlowStack`is similar to `VStack` and `HStack` layouts, but wrapping the content vertically when there is no space left horizontally. 
+`FlowStack` is similar to `VStack` and `HStack` layouts, but wrapping the content vertically when there is no space left horizontally. 
 
 ```swift
 ScrollView {
@@ -42,7 +41,6 @@ ScrollView {
       TagView(item)
     }
   }
-  .frame(maxWidth: .infinity, alignment: .leading)
   .padding()
 }
 ```
@@ -54,13 +52,13 @@ ScrollView {
 
 ```swift
 struct SomeView: View {
-  @State private var showSheet = false
+  @State private var isSheetPresented = false
   
   var body: some View {
     ScrollView {
       //...
     }
-    .shareSheet(isPresented: $showSheet, items: [product.url])
+    .shareSheet(isPresented: $isSheetPresented, items: [product.url])
   }
 }
 ```
@@ -87,19 +85,15 @@ StretchingHeader {
 ### Lorem Ipsum text generator
 
 ```swift
-// ...
-guard let string = String.loremIpsum(words: 20) else { return }
-/// generating an array of unique strings 
-/// that can be then used with SwiftUI.
-let items = string.uniqueStrings(splitBy: " ")
-// ...
+guard let lipsum = String.loremIpsum(words: 20) else { return }
+let words = lipsum.uniqueStrings()
 ```
 
 ### Navigation bar appearence
 
 ```swift
 NavigationStack {
-  ContentView()
+  // ...
 }
 .navigationAppearence(
   backgroundColor: .white,

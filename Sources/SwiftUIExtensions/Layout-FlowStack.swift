@@ -6,6 +6,7 @@ import SwiftUI
 
 public struct FlowStack: Layout {
   public let spacing: CGFloat
+  var alignment: HorizontalAlignment = .trailing
   
   public init(spacing: CGFloat = 4) {
     self.spacing = spacing
@@ -18,7 +19,8 @@ public struct FlowStack: Layout {
   ) -> CGSize {
     let containerWidth = proposal.replacingUnspecifiedDimensions().width
     let sizes = subviews.map { $0.sizeThatFits(.unspecified) }
-    return layout(sizes, spacing, containerWidth).size
+    let layoutSize = layout(sizes, spacing, containerWidth).size
+    return layoutSize
   }
   
   public func placeSubviews(
@@ -28,8 +30,8 @@ public struct FlowStack: Layout {
     cache: inout ()
   ) {
     let sizes = subviews.map { $0.sizeThatFits(.unspecified) }
-    let offsets = layout(sizes, spacing, bounds.width).offsets
-    for (offset, subview) in zip(offsets, subviews) {
+    let layoutOffsets = layout(sizes, spacing, bounds.width).offsets
+    for (offset, subview) in zip(layoutOffsets, subviews) {
       subview.place(
         at: CGPoint(
           x: offset.x + bounds.minX,
