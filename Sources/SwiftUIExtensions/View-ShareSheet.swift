@@ -28,7 +28,6 @@ private struct ShareView: View {
   }
 }
 
-
 private struct ActivityRepresentable: UIViewControllerRepresentable {
   let items: [Any]
   let activities: [UIActivity]?

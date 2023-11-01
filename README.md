@@ -102,6 +102,12 @@ NavigationStack {
 )
 ```
 
+### Shape fill & stroke
+
+```swift
+Circle().fill(.red, stroke: .yellow, lineWidth: 4)
+```
+
 ### View size overlay
 
 ```swift
@@ -117,4 +123,5 @@ VStack(spacing: 0) {
 }
 .ignoresSafeArea()
 ```
+
 ![Screenshot](simulator-overlay-size.png)
