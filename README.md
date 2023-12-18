@@ -89,20 +89,20 @@ guard let lipsum = String.loremIpsum(words: 20) else { return }
 let words = lipsum.uniqueStrings()
 ```
 
-### Navigation bar appearence
+### Navigation stack
 
 ```swift
-NavigationStack {
-  // ...
-}
-.navigationAppearence(
-  backgroundColor: .white,
-  foregroundColor: .black,
-  backSystemImage: "arrow.left"
-)
+SettingsView()
+  .navigationStack()
+  .navigationBar(
+    backgroundColor: .systemTeal,
+    foregroundColor: .white,
+    backSystemImage: "arrow.left",
+    hideSeparator: true
+  )
 ```
 
-### Shape fill & stroke
+### Fill & stroke combined shape modifier
 
 ```swift
 Circle().fill(.red, stroke: .yellow, lineWidth: 4)
@@ -111,7 +111,7 @@ Circle().fill(.red, stroke: .yellow, lineWidth: 4)
 ### View size overlay
 
 ```swift
-VStack(spacing: 0) {
+VStack {
   Rectangle().fill(.mint)
   Rectangle().fill(.brown)
   Rectangle().fill(.red)
@@ -121,7 +121,6 @@ VStack(spacing: 0) {
   Rectangle().fill(.teal)
   Rectangle().fill(.blue)
 }
-.ignoresSafeArea()
 ```
 
 ![Screenshot](simulator-overlay-size.png)

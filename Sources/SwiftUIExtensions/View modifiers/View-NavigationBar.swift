@@ -5,7 +5,7 @@
 import SwiftUI
 
 extension View {
-  public func navigationAppearence(
+  public func navigationBar(
     backgroundColor: UIColor,
     foregroundColor: UIColor,
     tintColor: UIColor? = nil,
@@ -50,7 +50,7 @@ struct NavigationStackViewModifier: ViewModifier {
     appearance.backgroundColor = backgroundColor
     
     if let systemName = backSystemImage {
-      let config = UIImage.SymbolConfiguration(weight: .bold)
+      let config = UIImage.SymbolConfiguration(weight: .semibold)
       let image = UIImage(systemName: systemName, withConfiguration: config)
       appearance.setBackIndicatorImage(image, transitionMaskImage: image)
     }
@@ -96,7 +96,6 @@ struct ContentView: View {
       }
     }
     .listStyle(.plain)
-    .navigationTitle("Numbers")
     .toolbar {
       Button("Add") {}
     }
@@ -104,13 +103,15 @@ struct ContentView: View {
 }
 
 #Preview {
-  NavigationStack {
-    ContentView()
-  }
-  .navigationAppearence(
-    backgroundColor: .white,
-    foregroundColor: .black,
-    backSystemImage: "arrow.left"
-  )
+  ContentView()
+    .navigationTitle("Numbers")
+    .navigationBarTitleDisplayMode(.inline)
+    .navigationStack()
+    .tint(.white)
+    .navigationBar(
+      backgroundColor: .systemTeal,
+      foregroundColor: .white,
+      backSystemImage: "arrow.left",
+      hideSeparator: true
+    )
 }
-
