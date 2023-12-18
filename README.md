@@ -30,6 +30,19 @@ LoadingButton("Upload", systemImage: "arrow.up") {
 }
 ```
 
+### Open link URL in-app
+
+[Solution](https://www.avanderlee.com/swiftui/sfsafariviewcontroller-open-webpages-in-app/) proposed by Antoine van der Lee
+
+```swift
+VStack {
+  Link("Apple", destination: URL(string: "https://www.apple.com")!)
+  Text("Markdown link [website](https://www.apple.com)")
+}
+.openURLInApp()
+```
+
+
 ### Flow stack
 
 `FlowStack` is similar to `VStack` and `HStack` layouts, but wrapping the content vertically when there is no space left horizontally. 
