@@ -16,7 +16,8 @@ let package = Package(
   targets: [
     .target(
       name: "SwiftUIExtensions",
-      dependencies: []
+      dependencies: [],
+      path: "Sources"
     )
   ]
 )
